@@ -1,21 +1,21 @@
 package org.springframework.samples.petclinic.model;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.util.Locale;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
- * @author Michael Isvy
- *         Simple test to make sure that Bean Validation is working
- *         (useful when upgrading to a new version of Hibernate Validator/ Bean Validation)
+ * @author Michael Isvy Simple test to make sure that Bean Validation is working (useful
+ * when upgrading to a new version of Hibernate Validator/ Bean Validation)
  */
 public class ValidatorTests {
 
@@ -34,7 +34,8 @@ public class ValidatorTests {
         person.setLastName("smith");
 
         Validator validator = createValidator();
-        Set<ConstraintViolation<Person>> constraintViolations = validator.validate(person);
+        Set<ConstraintViolation<Person>> constraintViolations = validator
+                .validate(person);
 
         assertThat(constraintViolations.size()).isEqualTo(1);
         ConstraintViolation<Person> violation = constraintViolations.iterator().next();
